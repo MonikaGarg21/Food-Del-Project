@@ -17,3 +17,11 @@ a{
   width: 80%;
   margin: auto;
 }
+@keyframes fadeIn{
+  0%{
+    Opacity: 0;
+  }
+  100%{
+    Opacity:1;
+  }
+}
