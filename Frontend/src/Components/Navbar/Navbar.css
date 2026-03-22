@@ -4,11 +4,9 @@
   justify-content: space-between;
   align-items: center;
 }
-
 .navbar .logo {
   width: 150px;
 }
-
 .navbar-menu {
   display: flex;
   list-style: none;
@@ -17,13 +15,11 @@
   font-size: 18px;
   text-transform: capitalize;
 }
-
 .navbar-right {
   display: flex;
   align-items: center;
   gap: 40px;
 }
-
 .navbar button {
   background: transparent;
   font-size: 16px;
@@ -34,16 +30,13 @@
   cursor: pointer;
   transition: 0.3s;
 }
-
 .navbar button:hover {
   background-color: #fff4f2;
 }
-
 .navbar .active {
   padding-bottom: 2px;
   border-bottom: 2px solid #49557e;
 }
-
 .navbar li:hover {
   cursor: pointer;
 }
