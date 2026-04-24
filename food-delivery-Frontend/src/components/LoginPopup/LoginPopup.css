@@ -1,0 +1,167 @@
+/* ── Variables ─────────────────────────────────────── */
+:root {
+  --orange-50: #fff7ed;
+  --orange-100: #ffedd5;
+  --orange-200: #fed7aa;
+  --orange-500: #f97316;
+  --orange-600: #ea580c;
+}
+
+/* ── Overlay ────────────────────────────────────────── */
+.login-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+/* ── Modal card ─────────────────────────────────────── */
+.login-modal {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 400px;
+  border: 0.5px solid var(--orange-200);
+}
+
+/* ── Header ─────────────────────────────────────────── */
+.login-modal__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 1.5rem;
+}
+
+.login-modal__title {
+  font-size: 22px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0 0 4px;
+}
+
+.login-modal__sub {
+  font-size: 13px;
+  color: #888;
+  margin: 0;
+}
+
+.login-modal__close {
+  background: var(--orange-50);
+  border: 0.5px solid var(--orange-200);
+  border-radius: 50%;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  flex-shrink: 0;
+  padding: 0;
+}
+.login-modal__close:hover {
+  background: var(--orange-100);
+}
+
+/* ── Form fields ────────────────────────────────────── */
+.login-modal__form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.login-field {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.login-field label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #444;
+}
+
+.login-field input {
+  border: 1.5px solid #e5e7eb;
+  border-radius: 10px;
+  padding: 10px 13px;
+  font-size: 14px;
+  outline: none;
+  transition:
+    border-color 0.15s,
+    box-shadow 0.15s;
+  color: #111;
+}
+.login-field input:focus {
+  border-color: var(--orange-500);
+  box-shadow: 0 0 0 3px var(--orange-100);
+}
+
+/* ── Terms checkbox ─────────────────────────────────── */
+.login-modal__terms {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 12.5px;
+  color: #666;
+  cursor: pointer;
+}
+.login-modal__terms input[type="checkbox"] {
+  margin-top: 2px;
+  accent-color: var(--orange-500);
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+.login-modal__terms a {
+  color: var(--orange-600);
+  text-decoration: none;
+  font-weight: 500;
+}
+.login-modal__terms a:hover {
+  text-decoration: underline;
+}
+
+/* ── Submit button ──────────────────────────────────── */
+.login-modal__submit {
+  background: var(--orange-500);
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 12px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  width: 100%;
+  margin-top: 4px;
+  transition:
+    background 0.15s,
+    transform 0.1s;
+}
+.login-modal__submit:hover {
+  background: var(--orange-600);
+}
+.login-modal__submit:active {
+  transform: scale(0.98);
+}
+
+/* ── Toggle link ────────────────────────────────────── */
+.login-modal__toggle {
+  text-align: center;
+  margin-top: 1.25rem;
+  font-size: 13px;
+  color: #666;
+}
+.login-modal__toggle span {
+  color: var(--orange-600);
+  font-weight: 500;
+  cursor: pointer;
+}
+.login-modal__toggle span:hover {
+  text-decoration: underline;
+}

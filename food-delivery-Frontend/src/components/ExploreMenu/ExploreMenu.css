@@ -1,0 +1,112 @@
+/* ── Explore Menu ── */
+.explore-menu {
+  margin-bottom: 48px;
+}
+
+.explore-menu__header {
+  margin-bottom: 28px;
+}
+
+/* Horizontally scrollable pill track */
+.explore-menu__track {
+  display: flex;
+  gap: 12px;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;
+  scroll-snap-type: x mandatory;
+}
+
+.explore-menu__track::-webkit-scrollbar {
+  display: none;
+}
+
+/* Individual pill button */
+.explore-menu__pill {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  scroll-snap-align: start;
+  transition: var(--transition);
+  padding: 4px;
+  border-radius: var(--radius-md);
+}
+
+.explore-menu__pill:hover {
+  transform: translateY(-3px);
+}
+
+/* Image circle */
+.explore-menu__pill-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2.5px solid var(--clr-border);
+  background: var(--clr-surface-2);
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.explore-menu__pill-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.explore-menu__pill:hover .explore-menu__pill-img img {
+  transform: scale(1.08);
+}
+
+.explore-menu__pill-img.active {
+  border-color: var(--clr-brand);
+  box-shadow: 0 0 0 3px var(--clr-brand-light);
+}
+
+/* Label */
+.explore-menu__pill span {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--clr-text-secondary);
+  transition: color var(--transition);
+  white-space: nowrap;
+}
+
+.explore-menu__pill:hover span,
+.explore-menu__pill:has(.active) span {
+  color: var(--clr-text);
+}
+
+/* Active state label */
+.explore-menu__pill:has(.explore-menu__pill-img.active) span {
+  color: var(--clr-brand);
+  font-weight: 600;
+}
+
+/* Bottom rule */
+.explore-menu__divider {
+  height: 1px;
+  background: var(--clr-border);
+  margin-top: 24px;
+}
+
+/* Mobile */
+@media (max-width: 640px) {
+  .explore-menu__pill-img {
+    width: 68px;
+    height: 68px;
+  }
+
+  .explore-menu__pill span {
+    font-size: 12px;
+  }
+}

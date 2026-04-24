@@ -1,0 +1,84 @@
+.my-orders {
+  padding: 40px;
+  background-color: #f9f9f9;
+  min-height: 100vh;
+}
+
+.my-orders h2 {
+  margin-bottom: 20px;
+  font-size: 28px;
+}
+
+.no-orders {
+  font-size: 18px;
+  color: gray;
+}
+
+.order-card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.status {
+  background: #ffe0b2;
+  padding: 5px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.order-items {
+  border-top: 1px solid #eee;
+  padding-top: 10px;
+}
+
+.order-item {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+  align-items: center;
+}
+
+.order-item img {
+  width: 60px;
+  height: 60px;
+  border-radius: 8px;
+  object-fit: cover;
+}
+
+.item-name {
+  font-weight: 600;
+}
+
+.order-details {
+  margin-top: 15px;
+  font-size: 14px;
+}
+
+.order-footer {
+  margin-top: 15px;
+  text-align: right;
+}
+
+.track-btn {
+  background-color: #ff4c24;
+  color: white;
+  padding: 8px 15px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.track-btn:hover {
+  background-color: #e03e1f;
+}
