@@ -1,11 +1,13 @@
-import React, {useContext, useEffect, useState} from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "./MyOrder.css";
-import {StoreContext} from "../../context/UseStoreContext";
+import { StoreContext } from "../../context/UseStoreContext";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const MyOrder = () => {
-  const {url, token} = useContext(StoreContext);
+  const { url, token } = useContext(StoreContext);
   const [orders, setOrders] = useState([]);
+  const navigate = useNavigate();
   useEffect(() => {
     if (token) {
       // Fetch Orders
@@ -71,7 +73,7 @@ const MyOrder = () => {
             <div className="order-footer">
               <button
                 className="track-btn"
-                onClick={() => alert(`Tracking Order ID: ${order._id}`)}
+                onClick={() => navigate(`/track/${order._id}`)}
               >
                 Track Order
               </button>

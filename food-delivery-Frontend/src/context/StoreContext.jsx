@@ -1,5 +1,5 @@
-import {useEffect, useState, useCallback} from "react";
-import {StoreContext} from "./UseStoreContext";
+import { useEffect, useState, useCallback } from "react";
+import { StoreContext } from "./UseStoreContext";
 import axios from "axios";
 
 const BASE_URL = "http://localhost:4000";
@@ -9,13 +9,13 @@ const api = axios.create({
   baseURL: BASE_URL,
 });
 
-const StoreContextProvider = ({children}) => {
+const StoreContextProvider = ({ children }) => {
   const [cartItems, setCartItems] = useState({});
   const [token, setToken] = useState(() => localStorage.getItem("token") || "");
   const [food_list, setFoodList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-
+  console.log(food_list);
   // Attach token to every request automatically
   useEffect(() => {
     const interceptor = api.interceptors.request.use((config) => {
@@ -38,7 +38,7 @@ const StoreContextProvider = ({children}) => {
     try {
       setLoading(true);
       setError(null);
-      const {data} = await api.get("/api/food/list");
+      const { data } = await api.get("/api/food/list");
       setFoodList(data.data);
     } catch (err) {
       setError("Failed to load food items. Please try again.");
@@ -51,7 +51,7 @@ const StoreContextProvider = ({children}) => {
   const fetchCartFromServer = useCallback(async () => {
     if (!token) return;
     try {
-      const {data} = await api.get("/api/cart/get");
+      const { data } = await api.get("/api/cart/get");
       setCartItems(data.cartData || {});
     } catch (err) {
       console.error("fetchCart error:", err);
@@ -74,11 +74,11 @@ const StoreContextProvider = ({children}) => {
 
       if (token) {
         try {
-          await api.post("/api/cart/add", {itemId});
+          await api.post("/api/cart/add", { itemId });
         } catch (err) {
           // Rollback on failure
           setCartItems((prev) => {
-            const updated = {...prev};
+            const updated = { ...prev };
             if (updated[itemId] > 1) updated[itemId] -= 1;
             else delete updated[itemId];
             return updated;
@@ -93,10 +93,10 @@ const StoreContextProvider = ({children}) => {
   const removeFromCart = useCallback(
     async (itemId) => {
       // Snapshot for rollback
-      const snapshot = {...cartItems};
+      const snapshot = { ...cartItems };
 
       setCartItems((prev) => {
-        const updated = {...prev};
+        const updated = { ...prev };
         if (updated[itemId] > 1) updated[itemId] -= 1;
         else delete updated[itemId];
         return updated;
@@ -104,7 +104,7 @@ const StoreContextProvider = ({children}) => {
 
       if (token) {
         try {
-          await api.delete("/api/cart/remove", {data: {itemId}});
+          await api.delete("/api/cart/remove", { data: { itemId } });
         } catch (err) {
           setCartItems(snapshot); // Rollback
           console.error("removeFromCart error:", err);

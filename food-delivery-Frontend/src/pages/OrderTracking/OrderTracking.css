@@ -1,0 +1,121 @@
+/* Background */
+.tracking-bg {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #f8fafc, #e2e8f0);
+}
+
+/* Card */
+.tracking-card {
+  width: 400px;
+  padding: 30px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Title */
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+/* Progress */
+.progress-container {
+  position: relative;
+  height: 8px;
+  background: #e5e7eb;
+  border-radius: 20px;
+  margin-bottom: 30px;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #4ade80);
+  border-radius: 20px;
+  transition: width 1s ease;
+}
+
+/* 🚚 Truck */
+.truck {
+  position: absolute;
+  top: -18px;
+  transform: translateX(-50%);
+  font-size: 20px;
+  transition: left 1s ease;
+}
+
+/* Steps */
+.steps {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.step {
+  text-align: center;
+  flex: 1;
+}
+
+.dot {
+  width: 12px;
+  height: 12px;
+  background: #cbd5e1;
+  border-radius: 50%;
+  margin: auto;
+  margin-bottom: 5px;
+}
+
+.active-step .dot {
+  background: #22c55e;
+  transform: scale(1.3);
+}
+
+.active-step p {
+  color: #16a34a;
+  font-weight: bold;
+}
+
+/* Map */
+.map iframe {
+  width: 100%;
+  height: 150px;
+  border: none;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+/* Loader */
+.loader {
+  width: 40px;
+  height: 40px;
+  border: 4px solid #ddd;
+  border-top: 4px solid #22c55e;
+  border-radius: 50%;
+  margin: auto;
+  margin-top: 200px;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Success popup */
+.success-popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.success-box {
+  background: #22c55e;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 10px;
+}
