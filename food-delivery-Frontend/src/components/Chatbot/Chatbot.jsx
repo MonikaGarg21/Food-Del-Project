@@ -12,6 +12,7 @@ const Chatbot = ({ food_list = [] }) => {
   ]);
 
   const [input, setInput] = useState("");
+  const [filteredFoods, setFilteredFoods] = useState([]);
 
   // =========================
   // Food Suggestion Function
@@ -50,22 +51,82 @@ const Chatbot = ({ food_list = [] }) => {
           item.category.toLowerCase().includes("salad"),
       );
 
-      return vegItems.length
-        ? `🥗 Veg Foods:\n${vegItems
-            .map((item) => `${item.name} (₹${item.price})`)
-            .join(", ")}`
-        : "😅 No veg foods found";
+      setFilteredFoods(vegItems);
+
+      return "🥗 Showing veg food items outside chatbot";
     }
 
-    // ===== Cheap Foods =====
+    // ===== Cheap Foods Menu =====
     if (msg.includes("cheap") || msg.includes("low price")) {
-      const cheapItems = food_list.filter((item) => item.price <= 100);
+      return `
+💸 Select Price Range:
 
-      return cheapItems.length
-        ? `💸 Cheap Foods:\n${cheapItems
+• Under 100
+• Under 200
+• Under 300
+• Under 400
+• Under 500
+
+Type any option like:
+under 100
+under 200
+etc.
+  `;
+    }
+
+    // ===== Under 100 =====
+    if (msg.includes("under 100")) {
+      const items = food_list.filter((item) => item.price <= 100);
+
+      return items.length
+        ? `💸 Foods Under ₹100:\n${items
             .map((item) => `${item.name} (₹${item.price})`)
             .join(", ")}`
-        : "😅 No cheap foods found";
+        : "😅 No foods available under ₹100";
+    }
+
+    // ===== Under 200 =====
+    if (msg.includes("under 200")) {
+      const items = food_list.filter((item) => item.price <= 200);
+
+      return items.length
+        ? `💸 Foods Under ₹200:\n${items
+            .map((item) => `${item.name} (₹${item.price})`)
+            .join(", ")}`
+        : "😅 No foods available under ₹200";
+    }
+
+    // ===== Under 300 =====
+    if (msg.includes("under 300")) {
+      const items = food_list.filter((item) => item.price <= 300);
+
+      return items.length
+        ? `💸 Foods Under ₹300:\n${items
+            .map((item) => `${item.name} (₹${item.price})`)
+            .join(", ")}`
+        : "😅 No foods available under ₹300";
+    }
+
+    // ===== Under 400 =====
+    if (msg.includes("under 400")) {
+      const items = food_list.filter((item) => item.price <= 400);
+
+      return items.length
+        ? `💸 Foods Under ₹400:\n${items
+            .map((item) => `${item.name} (₹${item.price})`)
+            .join(", ")}`
+        : "😅 No foods available under ₹400";
+    }
+
+    // ===== Under 500 =====
+    if (msg.includes("under 500")) {
+      const items = food_list.filter((item) => item.price <= 500);
+
+      return items.length
+        ? `💸 Foods Under ₹500:\n${items
+            .map((item) => `${item.name} (₹${item.price})`)
+            .join(", ")}`
+        : "😅 No foods available under ₹500";
     }
 
     // ===== Expensive Foods =====
@@ -77,17 +138,6 @@ const Chatbot = ({ food_list = [] }) => {
             .map((item) => `${item.name} (₹${item.price})`)
             .join(", ")}`
         : "😅 No premium foods found";
-    }
-
-    // ===== Category Search =====
-    const categoryMatch = food_list.filter((item) =>
-      item.category.toLowerCase().includes(msg),
-    );
-
-    if (categoryMatch.length > 0) {
-      return `🍴 ${msg.toUpperCase()} Items:\n${categoryMatch
-        .map((item) => `${item.name} (₹${item.price})`)
-        .join(", ")}`;
     }
 
     // ===== Food Name Search =====

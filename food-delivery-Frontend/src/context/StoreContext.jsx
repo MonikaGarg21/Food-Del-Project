@@ -15,7 +15,7 @@ const StoreContextProvider = ({ children }) => {
   const [food_list, setFoodList] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  console.log(food_list);
+
   // Attach token to every request automatically
   useEffect(() => {
     const interceptor = api.interceptors.request.use((config) => {
