@@ -59,7 +59,6 @@ import food_42 from "./food_42.jpg";
 import food_43 from "./food_43.jpg";
 import food_44 from "./food_44.jpg";
 
-
 import add_icon_white from "./add_icon_white.png";
 import add_icon_green from "./add_icon_green.png";
 import remove_icon_red from "./remove_icon_red.png";
@@ -514,7 +513,7 @@ export const food_list = [
       "Food provides essential nutrients for overall health and well-being!",
     category: "Burger",
   },
-   {
+  {
     _id: "41",
     name: "Punjab Special",
     image: food_41,
@@ -532,7 +531,7 @@ export const food_list = [
       "Food provides essential nutrients for overall health and well-being!",
     category: "Special Thali",
   },
-   {
+  {
     _id: "43",
     name: "Shapan Bhog",
     image: food_43,
@@ -541,7 +540,7 @@ export const food_list = [
       "Food provides essential nutrients for overall health and well-being!",
     category: "Special Thali",
   },
-   {
+  {
     _id: "44",
     name: "Butter Tandoori",
     image: food_44,
