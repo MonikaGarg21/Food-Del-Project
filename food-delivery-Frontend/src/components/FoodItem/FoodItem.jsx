@@ -1,11 +1,12 @@
-import React, {useContext} from "react";
+import React, { useContext } from "react";
 import "./FoodItem.css";
-import {assets} from "../../assets/frontend_assets/assets";
-import {StoreContext} from "../../context/UseStoreContext";
-import {formatINR} from "../../uitls/formatINR.js";
+import { assets } from "../../assets/frontend_assets/assets";
+import { StoreContext } from "../../context/UseStoreContext";
+import { formatINR } from "../../uitls/formatINR.js";
 
-const FoodItem = ({id, name, price, description, image}) => {
-  const {cartItems, addToCart, removeFromCart, url} = useContext(StoreContext);
+const FoodItem = ({ id, name, price, description, image }) => {
+  const { cartItems, addToCart, removeFromCart, url } =
+    useContext(StoreContext);
   const count = cartItems[id] || 0;
 
   return (
